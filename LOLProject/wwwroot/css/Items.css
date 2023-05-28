@@ -1,0 +1,149 @@
+﻿a {
+    color: #bcbcbc;
+    font-size: 17px;
+    margin: 10px;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+
+body {
+    background-color: #373636;
+}
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+    .image-container .image-box {
+        width: calc(100% / 7);
+        padding: 5px;
+        text-align: center;
+    }
+
+        .image-container .image-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-container .image-box .caption {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+@media (max-width: 1199.98px) {
+    .image-container .image-box {
+        width: calc(100% / 6);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .image-container .image-box {
+        width: calc(100% / 4);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .image-container .image-box {
+        width: calc(100% / 3);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .image-container .image-box {
+        width: calc(100% / 2);
+    }
+}
+
+@media (max-width: 479.98px) {
+    .image-container .image-box {
+        width: 100%;
+    }
+}
+
+.category {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #f9f9ff;
+}
+
+.image-box {
+    position: relative;
+}
+
+.mini-block {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px; /* Задайте ширину мини-блока по вашему усмотрению */
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    z-index: 1;
+}
+
+.image-box:hover .mini-block {
+    display: block;
+    background-color: #606060;
+}
+
+.itemImage {
+    border: 1px solid #d76705;
+}
+
+#aboutHero {
+    color: #ffd89d;
+}
+
+.adSpan {
+    color: #ffd89d;
+}
+
+.apSpan {
+    color: #2c30b2;
+}
+
+.critSpan {
+    color: #ff8a00;
+}
+
+.attackSpeedSpan {
+    color: #c81111;
+}
+
+.movementSpan {
+    color: #317e8d;
+}
+
+.armorSpan {
+    color: #f9f9f9;
+}
+
+.hpSpan {
+    color: #2c9c1d;
+}
+
+.modificatorSpan {
+    color: #fbfbfb;
+}
+
+.adSpan,
+.critSpan,
+.apSpan,
+.attackSpeedSpan,
+.movementSpan,
+.armorSpan,
+.hpSpan,
+.modificatorSpan{
+    display: block;
+}
+
+

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LOLProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LOLProject.styles.css" asp-append-version="true" />
+</head>
+<body class="h-auto">    
+    <div class="container-fluid min-vw-100">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 col-sm-3" id="sidebar">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 text-white min-vh-100">
+                    <p id="Iterations" class="pt-5 align-self-center">Iterations</p>
+                    <input id="iterationsInput" class="align-self-center w-100" type="text" value="3000" placeholder="Итерации" />
+                    <button id="simulateButton" class="align-self-center m-3 w-100 p-2 p-sm-0">Simulate</button>
+                    <p class="align-self-center m-3 mt-5 w-100 p-2 p-sm-0">Stats</p>
+                    <div class="d-flex my-lg-3 my-1" style="border-bottom:2px solid white">
+                        <p class="align-self-center mr-4 mb-0 pb-0 w-100 p-sm-0 float-right">HP</p>
+                        <input id="hpInput" class="simulateInfoInput col-8" value="1500" maxlength="6" type="number" style="height:auto" />
+                    </div>
+                    <div class="d-flex my-lg-3 my-1" style="border-bottom:2px solid white">
+                        <p class="align-self-center w-100 mr-4 mb-0 pb-0 p-sm-0 float-left">AP</p>
+                        <input id="apInput" class="simulateInfoInput col-8" value="1500" maxlength="6" type="number" style="height:auto" />
+                    </div>
+                    <div class="d-flex my-lg-3 my-1" style="border-bottom:2px solid white">
+                        <p class="align-self-center mr-4 mb-0 pb-0 w-100 p-sm-0 float-right">AD</p>
+                        <input id="adInput" class="simulateInfoInput col-8" value="1500" maxlength="6" type="number" style="height:auto" />
+                    </div>
+                    <div class="d-flex my-lg-3 my-1" style="border-bottom:2px solid white">
+                        <p class="align-self-center mb-0 pb-0 w-100 p-sm-0 float-right">Armor</p>
+                        <input id="armorInput" class="simulateInfoInput col-8" value="1500" maxlength="6" type="number" style="height:auto" />
+                    </div>
+                    <div class="d-flex my-lg-3 my-1" style="border-bottom:2px solid white">
+                        <p class="align-self-center mb-0 pb-0 w-100 p-sm-0 float-right">Speed</p>
+                        <input id="speedInput" name="mySpeedInput" class="simulateInfoInput col-8" value="1500" maxlength="6" type="number" style="height:auto" />
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-9 col-xl-10 col-sm-9 p-0 h3">
+                <header>
+                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow">
+                        <div class="container">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                                <ul class="navbar-nav flex-grow-1">
+                                    <li class="nav-item">
+                                        <a class="header-a" asp-area="" asp-controller="Home" asp-action="Heroes">Heroes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="header-a" asp-area="" asp-controller="Home" asp-action="viewItem">Buffs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="header-a" asp-area="" asp-controller="Home" asp-action="Items">Items</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="header-a" asp-area="" asp-controller="Home" asp-action="Test">Tactics</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

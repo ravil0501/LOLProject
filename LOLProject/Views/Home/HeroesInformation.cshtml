@@ -1,0 +1,18 @@
+﻿@model LOLProject.Model.LolprojectContext
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+@{
+    var name = ViewData["heroName"];
+}
+<div class="container">
+    <img src =""/>
+</div>
+<p>@ViewBag.heroName</p>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
