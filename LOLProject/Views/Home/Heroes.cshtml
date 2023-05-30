@@ -5,17 +5,10 @@
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/Items.css">
-@{
-    var height = "70";
-    var width = "50";
-}
+
+
 <div class="container px-lg-5 px-md-3 px-lg-0">
-    <div class="aboutHero w-@(width)">
-        Hello everybody
-        lalala
-        lalala
-        allaala
-    </div>
+    
     <h4 class="category">Heroes</h4>
     @{
         var heroes = from c in Model.Heroes
@@ -26,14 +19,33 @@
         @foreach (var hero in heroes)
         {
             <div class="image-box">
-                <a asp-controller="Home" asp-action="HeroesInformation" asp-route-heroName="@Convert.ToString(hero.NameHero)">
-                    <img class="itemImage" width="112" height="72" src="data:image/png;base64,@Convert.ToBase64String(hero.ImageHeroIcon)" alt="@hero.NameHero">
+                <a href="#" class="open-link" id="info-link-@hero.NameHero" onclick="toggleOverlay('@hero.NameHero')">
+                    <img class="heroImage" width="112" height="72" src="data:image/png;base64,@Convert.ToBase64String(hero.ImageHeroIcon)" alt="@hero.NameHero">
                     <p style="font-size:16px; color: #c0c5cc;">@hero.NameHero</p>
                 </a>
             </div>
+            <div id="overlay-@hero.NameHero" class="overlay">
+                <div class="information container col-xl-5 col-md-8 col-sm-10 align-content-center toSkip" id="info-@hero.NameHero" style="display: none;">
+                    <h2 class="toSkip">Все о чемпионе - @hero.NameHero</h2>
+                    <img class="col col-10 h-auto toSkip" src="data:image/png;base64,@Convert.ToBase64String(hero.ImageHero)" alt="@hero.NameHero">
+                    <div class="container col-4 toSkip">
+                        <h6>Базовые Характеристики</h6>
+                        <select name="mySelect">
+                            level
+                            @for(int j=1;j<18;j++)
+                            {
+                                <option value="@j">Level @j</option>
+                            }
+                            
+                        </select>
+                    </div>
+
+                </div>
+            </div>
         }
-        </div>
+    </div>
 </div>
+<script src="~/js/HeroScript.js" asp-append-version="true"></script>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
