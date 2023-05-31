@@ -16,7 +16,7 @@ namespace LOLProject.Controllers
 
         public IActionResult Heroes()
         {
-            var model = new LolprojectContext();
+            var model = new SelectModel();
             return View(model);
         }
         public IActionResult Index()

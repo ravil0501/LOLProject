@@ -1,11 +1,11 @@
 ﻿
 var myOverlay = document.getElementsByClassName("overlay");
-for (var j = 0; j < myOverlay.length; j++) {
+
+for (var j = 0; j < myOverlay.length-1; j++) {
     myOverlay[j].addEventListener("click", function (event) {
         var clickedElement = event.target;
-        var isInformation = clickedElement.classList.contains("toSkip");
-        //var isInformation = clickedElement.classList.contains("open-link");
-
+        var isInformation = clickedElement.classList.contains("toClose");
+        
         if (!isInformation) {
             var overlays = document.getElementsByClassName("overlay");
             var informations = document.getElementsByClassName("information");

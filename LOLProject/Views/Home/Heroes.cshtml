@@ -1,7 +1,8 @@
-﻿@*
+﻿
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@model LOLProject.Model.LolprojectContext
+@model SelectModel
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/Items.css">
@@ -11,7 +12,7 @@
     
     <h4 class="category">Heroes</h4>
     @{
-        var heroes = from c in Model.Heroes
+        var heroes = from c in Model.Context.Heroes
                 orderby c.NameHero
                 select c;
     }
@@ -25,21 +26,20 @@
                 </a>
             </div>
             <div id="overlay-@hero.NameHero" class="overlay">
-                <div class="information container col-xl-5 col-md-8 col-sm-10 align-content-center toSkip" id="info-@hero.NameHero" style="display: none;">
-                    <h2 class="toSkip">Все о чемпионе - @hero.NameHero</h2>
-                    <img class="col col-10 h-auto toSkip" src="data:image/png;base64,@Convert.ToBase64String(hero.ImageHero)" alt="@hero.NameHero">
-                    <div class="container col-4 toSkip">
-                        <h6>Базовые Характеристики</h6>
-                        <select name="mySelect">
+                <div class="information container col-xl-5 col-md-8 col-sm-10 align-content-center toClose" id="info-@hero.NameHero" style="display: none;">
+                    <h2 class="toClose">Все о чемпионе - @hero.NameHero</h2>
+                    <img class="col col-10 h-auto toClose" src="data:image/png;base64,@Convert.ToBase64String(hero.ImageHero)" alt="@hero.NameHero">
+                    <div class="container col-4 toClose">
+                        <h6 class="toClose">Базовые Характеристики</h6>
+                        <select class="toClose" asp-for="SelectedValue" name="SelectedValue">
                             level
-                            @for(int j=1;j<18;j++)
+                            @for (int j = 1; j < 19; j++)
                             {
                                 <option value="@j">Level @j</option>
                             }
-                            
                         </select>
+                       <p>@Model.SelectedValue</p>
                     </div>
-
                 </div>
             </div>
         }
