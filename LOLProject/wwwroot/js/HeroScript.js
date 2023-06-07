@@ -1,11 +1,11 @@
 ﻿
 var myOverlay = document.getElementsByClassName("overlay");
 
-for (var j = 0; j < myOverlay.length-1; j++) {
+for (var j = 0; j < myOverlay.length; j++) {
     myOverlay[j].addEventListener("click", function (event) {
         var clickedElement = event.target;
         var isInformation = clickedElement.classList.contains("toClose");
-        
+
         if (!isInformation) {
             var overlays = document.getElementsByClassName("overlay");
             var informations = document.getElementsByClassName("information");
@@ -33,10 +33,22 @@ function toggleOverlay(heroName) {
         overlay.style.display = "block";
         information.style.display = "block";
     }
+    //var name = document.getElementById("heroStatsName");
+    //var image = document.getElementById("heroStatsImage"); 
+    //var health = document.getElementById("averageHealthSpan");
+    //if (myOverlay.style.display === "block") {
+    //    myOverlay.style.display = "none";
+    //    information.style.display = "none";
+    //}
+    //else {
+    //    myOverlay.style.display = "block";
+    //    information.style.display = "block";
+    //    name.textContent = "Все о чемпионе - " + heroName;
+    //    image.src = heroImage;
+    //    health.textContent = baseScale;
+    //}
+    //data: image / png; base64,
+    //, 'data: image / png; base64@Convert.ToBase64String(hero.ImageHero)'
 }
-
-
-
-
 
 

@@ -11,7 +11,7 @@ public partial class BaseScale
 
     public double? Armor { get; set; }
 
-    public double? Man { get; set; }
+    public double? Mana { get; set; }
 
     public double? Ad { get; set; }
 

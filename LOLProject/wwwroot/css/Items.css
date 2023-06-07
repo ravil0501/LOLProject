@@ -159,7 +159,7 @@ body {
 
 .information {
     position: fixed;
-    top: 30%;
+    top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #373636;
@@ -169,5 +169,20 @@ body {
     z-index: 1;
     font-size: 12px;
     color: white;
+    height: 85%;
+    overflow-y: scroll;
+}
+
+#heroStatsImage{
+    margin: 5px;
+}
+
+.heroStats{
+    margin:3px;
+    font-size: 15px;
+}
+
+#statsContainer{
+    margin-bottom: 10px;
 }
 
