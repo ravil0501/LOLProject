@@ -49,73 +49,73 @@
                 <div id="info-@hero.NameHero" class="information container col-xl-6 col-md-8 col-sm-10 align-content-center toClose">
                     <h2 class="toClose" id="heroStatsName">Все о чемпионе - @hero.NameHero</h2>
                     <img id="heroStatsImage" class="col col-8 h-auto toClose" src="data:image/png;base64,@Convert.ToBase64String(hero.ImageHero)">
-                    <div class="container toClose col-7 justify-content-start" id="statsContainer">
+                    <div class="container toClose col-7 justify-content-start toClose" id="statsContainer">
                         <h6 class="toClose">Базовые Характеристики</h6>
-                        <table class="coltoClose">
+                        <table class="col toClose">
                             <tr>
-                                <td><span id="healthSpan" class="heroStats col-6 float-start">Здоровье</span></td>
-                                <td><span id="averageHealthSpan" class="heroStats col-6">@baseScale.Health</span></td>
-                                <td><span id="scaleHealthSpan" class="heroStats col-6">+@heroScale.Health</span></td>
+                                <td><span id="healthSpan" class="heroStats col-6 float-start toClose">Здоровье</span></td>
+                                <td><span id="averageHealthSpan" class="heroStats col-6 toClose">@baseScale.Health</span></td>
+                                <td><span id="scaleHealthSpan" class="heroStats col-6 toClose">+@heroScale.Health</span></td>
                             </tr>
                             <tr>
-                                <td><span id="manaSpan" class="heroStats col-6 float-start">Мана</span></td>
-                                <td><span id="averageManaSpan" class="heroStats col-6">@baseScale.Mana</span></td>
-                                <td><span id="scaleManaSpan" class="heroStats col-6">+@heroScale.Mana</span></td>
+                                <td><span id="manaSpan" class="heroStats col-6 float-start toClose">Мана</span></td>
+                                <td><span id="averageManaSpan" class="heroStats col-6 toClose">@baseScale.Mana</span></td>
+                                <td><span id="scaleManaSpan" class="heroStats col-6 toClose">+@heroScale.Mana</span></td>
                             </tr>
                             <tr>
-                                <td><span id="armorSpan" class="heroStats col-6 float-start">Защита</span></td>
-                                <td><span id="averageArmorSpan" class="heroStats col-6">@baseScale.Armor</span></td>
-                                <td><span id="scaleArmorSpan" class="heroStats col-6">+@heroScale.Armor</span></td>
+                                <td><span id="armorSpan" class="heroStats col-6 float-start toClose">Защита</span></td>
+                                <td><span id="averageArmorSpan" class="heroStats col-6 toClose">@baseScale.Armor</span></td>
+                                <td><span id="scaleArmorSpan" class="heroStats col-6 toClose">+@heroScale.Armor</span></td>
                             </tr>
                             <tr>
-                                <td><span id="magicResistSpan" class="heroStats col-6 float-start d-block">Магическая защита</span></td>
-                                <td><span id="averageMagicResistSpan" class="heroStats col-6">@baseScale.ResistMagic</span></td>
-                                <td><span id="scaleMagicResistSpan" class="heroStats col-6">+@heroScale.ResistMagic</span></td>
+                                <td><span id="magicResistSpan" class="heroStats col-6 float-start d-block toClose">Магическая защита</span></td>
+                                <td><span id="averageMagicResistSpan" class="heroStats col-6 toClose">@baseScale.ResistMagic</span></td>
+                                <td><span id="scaleMagicResistSpan" class="heroStats col-6 toClose">+@heroScale.ResistMagic</span></td>
                             </tr>
                             <tr>
-                                <td><span id="adSpan" class="heroStats col-6 float-start">Урон</span></td>
-                                <td><span id="averageADSpan" class="heroStats col-6">@baseScale.Ad</span></td>
-                                <td><span id="scaleADSpan" class="heroStats col-6">+@heroScale.Damage</span></td>
+                                <td><span id="adSpan" class="heroStats col-6 float-start toClose">Урон</span></td>
+                                <td><span id="averageADSpan" class="heroStats col-6 toClose">@baseScale.Ad</span></td>
+                                <td><span id="scaleADSpan" class="heroStats col-6 toClose">+@heroScale.Damage</span></td>
                             </tr>
                             <tr>
-                                <td><span id="critSpan" class="heroStats col-6 float-start">Крит</span></td>
-                                <td><span id="averageCritSpan" class="heroStats col-6">@baseScale.Crit</span></td>
+                                <td><span id="critSpan" class="heroStats col-6 float-start toClose">Крит</span></td>
+                                <td><span id="averageCritSpan" class="heroStats col-6 toClose">@baseScale.Crit</span></td>
                             </tr>
                             <tr>
-                                <td><span id="movementSpan" class="heroStats col-6 float-start">Передвижение</span></td>
-                                <td><span id="averageMovementSpan" class="heroStats col-6">@baseScale.MoveSpeed</span></td>
+                                <td><span id="movementSpan" class="heroStats col-6 float-start toClose">Передвижение</span></td>
+                                <td><span id="averageMovementSpan" class="heroStats col-6 toClose">@baseScale.MoveSpeed</span></td>
                             </tr>
                             <tr>
-                                <td><span id="attackSpeedSpan" class="heroStats col-6 float-start">Скорость атаки</span></td>
-                                <td><span id="averageAttackSpeedSpan" class="heroStats col-6">@baseScale.SpeedAttack</span></td>
+                                <td><span id="attackSpeedSpan" class="heroStats col-6 float-start toClose">Скорость атаки</span></td>
+                                <td><span id="averageAttackSpeedSpan" class="heroStats col-6 toClose">@baseScale.SpeedAttack</span></td>
                             </tr>
                         </table>
                     </div>
-                    <div class="container col-11 justify-content-start">
-                        <div class="container">
-                            <img width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[0].ImageSkill)" />
-                            <strong class="heroStats">@skillsHero[0].NameSkills</strong>
-                            <p class="heroStats">@skillsHero[0].Opisanie</p>
+                    <div class="container col-11 justify-content-start toClose">
+                        <div class="container toClose">
+                            <img width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[0].ImageSkill)" class="toClose">
+                            <strong class="heroStats toClose">@skillsHero[0].NameSkills</strong>
+                            <p class="heroStats toClose">@skillsHero[0].Opisanie</p>
                         </div>
                         <div class="container">
-                            <img width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[1].ImageSkill)">
-                            <strong>@skillsHero[1].NameSkills</strong>
-                            <p>@skillsHero[1].Opisanie</p>
+                            <img width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[1].ImageSkill)" class="toClose">
+                            <strong class="toClose">@skillsHero[1].NameSkills</strong>
+                            <p class="toClose">@skillsHero[1].Opisanie</p>
                         </div>
                         <div class="container">
-                            <img width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[2].ImageSkill)">
-                            <strong>@skillsHero[2].NameSkills</strong>
-                            <p>@skillsHero[2].Opisanie</p>
+                            <img class="toClose" width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[2].ImageSkill)">
+                            <strong class="toClose">@skillsHero[2].NameSkills</strong>
+                            <p class="toClose">@skillsHero[2].Opisanie</p>
                         </div>
                         <div class="container">
-                            <img width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[3].ImageSkill)">
-                            <strong>@skillsHero[3].NameSkills</strong>
-                            <p>@skillsHero[3].Opisanie</p>
+                            <img class="toClose" width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[3].ImageSkill)">
+                            <strong class="toClose">@skillsHero[3].NameSkills</strong>
+                            <p class="toClose">@skillsHero[3].Opisanie</p>
                         </div>
                         <div class="container">
-                            <img width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[4].ImageSkill)">
-                            <strong class="heroStats">@skillsHero[4].NameSkills</strong>
-                            <p class="heroStats">@skillsHero[4].Opisanie</p>
+                            <img class="toClose" width="40" height="40" src="data:image/png;base64,@Convert.ToBase64String(skillsHero[4].ImageSkill)">
+                            <strong class="heroStats toClose">@skillsHero[4].NameSkills</strong>
+                            <p class="heroStats toClose">@skillsHero[4].Opisanie</p>
                         </div>
                     </div>
                 </div>

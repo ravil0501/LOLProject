@@ -33,22 +33,6 @@ function toggleOverlay(heroName) {
         overlay.style.display = "block";
         information.style.display = "block";
     }
-    //var name = document.getElementById("heroStatsName");
-    //var image = document.getElementById("heroStatsImage"); 
-    //var health = document.getElementById("averageHealthSpan");
-    //if (myOverlay.style.display === "block") {
-    //    myOverlay.style.display = "none";
-    //    information.style.display = "none";
-    //}
-    //else {
-    //    myOverlay.style.display = "block";
-    //    information.style.display = "block";
-    //    name.textContent = "Все о чемпионе - " + heroName;
-    //    image.src = heroImage;
-    //    health.textContent = baseScale;
-    //}
-    //data: image / png; base64,
-    //, 'data: image / png; base64@Convert.ToBase64String(hero.ImageHero)'
 }
 
 

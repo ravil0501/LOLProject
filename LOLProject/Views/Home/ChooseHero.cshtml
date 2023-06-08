@@ -1,0 +1,61 @@
+﻿@model LOLProject.Models.ChoosenHero
+@{
+    ViewData["Title"] = "ChooseHero";
+}
+
+@{
+    var hero = (from a in Model.Context.Heroes
+                where a.NameHero == Model.NameHero
+                select a).FirstOrDefault();
+    if (!string.IsNullOrEmpty(Model.ItemName))
+    {
+        Model.AddedItems.Add(Model.ItemName);
+    }
+}
+
+<div style="background-color: #373636;" class="container w-100 h-100">
+    <div class ="d-flex container w-100 h-100">
+        @if (hero != null)
+        {
+            <div class="mr-lg-4 mr-md-2 pt-2 col-6 mb-1 float-start">
+                <img class="col col-11 h-auto align-self-center" src="data:image/png;base64,@Convert.ToBase64String(hero.ImageHero)" />
+                <p style="color: white;">@hero.NameHero</p>
+            </div>
+        }
+        
+        @if (hero == null)
+        {
+            <form method="post" asp-action="Hero" class="pt-2">
+                <input type="hidden" asp-for="NameHero" value="@Model.NameHero" />
+                @for (int i = 0; i < Model.AddedItems.Count; i++)
+                {
+                    <input type="hidden" asp-for="AddedItems[i]" value="@Model.AddedItems[i]" />
+                    var item = (from a in Model.Context.Items
+                                where a.ItemName == Model.AddedItems[i]
+                                select a).Single();
+                    <img class="col-6 float-left mx-1 h-auto align-self-center" src="data:image/png;base64,@Convert.ToBase64String(item.ImageItem)" />
+                }
+                <button type="submit">Выбрать героя</button>
+            </form>
+        }
+        <div class="mr-1 ml-0 pt-2 col-2">
+            <form method="post" asp-action="ChooseItems">
+                <input type="hidden" asp-for="NameHero" value="@Model.NameHero" />
+                @for (int i = 0; i < Model.AddedItems.Count; i++)
+                {
+                    <input type="hidden" asp-for="AddedItems[i]" value="@Model.AddedItems[i]" />
+                    var item = (from a in Model.Context.Items
+                                where a.ItemName == Model.AddedItems[i]
+                                select a).Single();
+                    <img class="col-4 float-left py-1 px-1 h-auto align-self-center" src="data:image/png;base64,@Convert.ToBase64String(item.ImageItem)" />
+                }
+                @if (Model.AddedItems.Count < 7)
+                {
+                    <button type="submit">Выбрать предмет</button>
+                }
+                
+            </form>
+        </div>
+    </div>
+
+</div>

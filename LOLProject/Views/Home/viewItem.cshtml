@@ -3,88 +3,90 @@
 @{
     ViewData["Title"] = "viewItem";
 }
+<body style="background-color: #373636; color: white;">
+    <h1>Добавить предмет</h1>
 
-<h1>Добавить предмет</h1>
-
-<h4>Item</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" asp-action="viewItem">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ItemName" class="control-label"></label>
-                <input asp-for="ItemName" class="form-control" />
-                <span asp-validation-for="ItemName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageItem" class="control-label"></label>
-                <input asp-for="ImageItem" class="form-control" />
-                <span asp-validation-for="ImageItem" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ad" class="control-label"></label>
-                <input asp-for="Ad" class="form-control" />
-                <span asp-validation-for="Ad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Crit" class="control-label"></label>
-                <input asp-for="Crit" class="form-control" />
-                <span asp-validation-for="Crit" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ap" class="control-label"></label>
-                <input asp-for="Ap" class="form-control" />
-                <span asp-validation-for="Ap" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AttackSpeed" class="control-label"></label>
-                <input asp-for="AttackSpeed" class="form-control" />
-                <span asp-validation-for="AttackSpeed" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Movement" class="control-label"></label>
-                <input asp-for="Movement" class="form-control" />
-                <span asp-validation-for="Movement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Armor" class="control-label"></label>
-                <input asp-for="Armor" class="form-control" />
-                <span asp-validation-for="Armor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Hp" class="control-label"></label>
-                <input asp-for="Hp" class="form-control" />
-                <span asp-validation-for="Hp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Modificators" class="control-label"></label>
-                <input asp-for="Modificators" class="form-control" />
-                <span asp-validation-for="Modificators" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdDiff" class="control-label"></label>
-                <select asp-for="IdDiff" class="form-control">
-                    <option value="1">Начальный</option>
-                    <option value="2">Расходуемый</option>
-                    <option value="3">Базовый</option>
-                    <option value="4">Обувь</option>
-                    <option value="5">Эпический</option>
-                    <option value="6">Легендарный</option>
-                    <option value="7">Мифический</option>
-                </select>
-                <span asp-validation-for="Modificators" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>Item</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post" asp-action="viewItem">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ItemName" class="control-label"></label>
+                    <input asp-for="ItemName" class="form-control" />
+                    <span asp-validation-for="ItemName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageItem" class="control-label"></label>
+                    <input asp-for="ImageItem" class="form-control" />
+                    <span asp-validation-for="ImageItem" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Ad" class="control-label"></label>
+                    <input asp-for="Ad" class="form-control" />
+                    <span asp-validation-for="Ad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Crit" class="control-label"></label>
+                    <input asp-for="Crit" class="form-control" />
+                    <span asp-validation-for="Crit" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Ap" class="control-label"></label>
+                    <input asp-for="Ap" class="form-control" />
+                    <span asp-validation-for="Ap" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AttackSpeed" class="control-label"></label>
+                    <input asp-for="AttackSpeed" class="form-control" />
+                    <span asp-validation-for="AttackSpeed" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Movement" class="control-label"></label>
+                    <input asp-for="Movement" class="form-control" />
+                    <span asp-validation-for="Movement" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Armor" class="control-label"></label>
+                    <input asp-for="Armor" class="form-control" />
+                    <span asp-validation-for="Armor" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hp" class="control-label"></label>
+                    <input asp-for="Hp" class="form-control" />
+                    <span asp-validation-for="Hp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Modificators" class="control-label"></label>
+                    <input asp-for="Modificators" class="form-control" />
+                    <span asp-validation-for="Modificators" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdDiff" class="control-label"></label>
+                    <select asp-for="IdDiff" class="form-control">
+                        <option value="1">Начальный</option>
+                        <option value="2">Расходуемый</option>
+                        <option value="3">Базовый</option>
+                        <option value="4">Обувь</option>
+                        <option value="5">Эпический</option>
+                        <option value="6">Легендарный</option>
+                        <option value="7">Мифический</option>
+                    </select>
+                    <span asp-validation-for="Modificators" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Heroes">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Heroes">Back to List</a>
+    </div>
+</body>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

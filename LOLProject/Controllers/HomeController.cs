@@ -98,6 +98,34 @@ namespace LOLProject.Controllers
             return View(model);
         }
 
+        public IActionResult ChooseHero()
+        {
+            var hero = new ChoosenHero();
+            return View(hero);
+        }
+
+        [HttpPost]
+        public IActionResult ChooseHero(ChoosenHero hero)
+        {
+            return View(hero);
+        }
+        
+        public IActionResult Hero(ChoosenHero hero, int _c)
+        {
+            return View(hero);
+        }
+
+        [HttpPost]
+        public IActionResult ChooseItems(ChoosenHero hero) 
+        { 
+            return View(hero);
+        }
+
+        public IActionResult ChooseItems(ChoosenHero hero, int _i)
+        {
+            return View(hero);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

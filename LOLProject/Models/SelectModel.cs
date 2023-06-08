@@ -9,6 +9,7 @@ namespace LOLProject.Models
     {
         [BindProperty]
         public int selectedValue { get; set; }
+        public byte[]? ImageHero { get; set; }
         public LolprojectContext Context { get; set; } = new LolprojectContext();
 
         

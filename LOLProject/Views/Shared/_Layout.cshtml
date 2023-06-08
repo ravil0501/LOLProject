@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,11 +12,11 @@
 <body class="h-auto">    
     <div class="container-fluid min-vw-100">
         <div class="row flex-nowrap">
-            @*<div class="col-auto col-md-3 col-xl-2 col-sm-3" id="sidebar">
+            <div class="col-auto col-md-3 col-xl-2 col-sm-3" id="sidebar">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 text-white min-vh-100">
                     <p id="Iterations" class="pt-5 align-self-center">Iterations</p>
                     <input id="iterationsInput" class="align-self-center w-100" type="text" value="3000" placeholder="Итерации" />
-                    <button id="simulateButton" class="align-self-center m-3 w-100 p-2 p-sm-0">Simulate</button>
+                    <button id="simulateButton" class="btn btn-primary align-self-center m-3 w-100 p-2 p-sm-0">Симуляция</button>
                     <p class="align-self-center m-3 mt-5 w-100 p-2 p-sm-0">Stats</p>
                     <div class="d-flex my-lg-3 my-1" style="border-bottom:2px solid white">
                         <p class="align-self-center mr-4 mb-0 pb-0 w-100 p-sm-0 float-right">HP</p>
@@ -38,8 +39,8 @@
                         <input id="speedInput" name="mySpeedInput" class="simulateInfoInput col-8" value="1500" maxlength="6" type="number" style="height:auto" />
                     </div>
                 </div>
-            </div>*@
-            <div class="col col-md-12 col-xl-12 col-sm-12 p-0 h3">
+            </div>
+            <div class="col col-md-9 col-xl-10 col-sm-9 p-0 h3">
                 <header>
                     <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow">
                         <div class="container">
@@ -57,6 +58,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="header-a" asp-area="" asp-controller="Home" asp-action="viewItem">Add Item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="header-a" asp-area="" asp-controller="Home" asp-action="ChooseHero">Simulation</a>
                                     </li>
                                 </ul>
                             </div>
