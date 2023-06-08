@@ -19,6 +19,8 @@ namespace LOLProject.Models
 
         public double? ResistMagic { get; set; }
 
+        public int? LevelHero { get; set; } = 1;
+
         public double? Crit { get; set; }
 
         public double? MoveSpeed { get; set; }

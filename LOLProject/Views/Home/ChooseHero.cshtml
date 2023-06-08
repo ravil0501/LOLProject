@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "ChooseHero";
 }
+<link rel="stylesheet" href="~/css/Items.css">
 
 @{
     var hero = (from a in Model.Context.Heroes
@@ -13,7 +14,7 @@
     }
 }
 
-<div style="background-color: #373636;" class="container w-100 h-100">
+<div style="background-color: #373636;" class="container">
     <div class ="d-flex container w-100 h-100">
         @if (hero != null)
         {
@@ -49,13 +50,107 @@
                                 select a).Single();
                     <img class="col-4 float-left py-1 px-1 h-auto align-self-center" src="data:image/png;base64,@Convert.ToBase64String(item.ImageItem)" />
                 }
-                @if (Model.AddedItems.Count < 7)
+                @if (Model.AddedItems.Count < 6)
                 {
                     <button type="submit">Выбрать предмет</button>
                 }
                 
             </form>
         </div>
+        @if(Model.NameHero != null)
+        {
+            var baseScale = (from a in Model.Context.BaseScales
+                             where a.NameHero == Model.NameHero
+                             select a).Single();
+            var scale = (from a in Model.Context.Scales
+                         where a.NameHero == Model.NameHero
+                         select a).Single();
+            double HP = 0, Mana = 0, Armor = 0, MagicResist = 0, Ap = 0, Movement = 0, Crit = 0, Ad = 0;
+            double? AttackSpeed = baseScale.SpeedAttack;
+            foreach (var b in Model.AddedItems)
+            {
+                var item = (from a in Model.Context.Items
+                            where a.ItemName == b
+                            select a).Single();
+                if (item.Hp != null)
+                {
+                    HP += Convert.ToDouble(item.Hp);
+                }
+                if (item.Armor != null)
+                {
+                    Armor += Convert.ToDouble(item.Armor);
+                }
+                if (item.Ad != null)
+                {
+                    Ad += Convert.ToDouble(item.Ad);
+                }
+                if (item.Ap != null)
+                {
+                    Ap += Convert.ToDouble(item.Ap);
+                }
+                if (item.Movement != null)
+                {
+                    Movement += Convert.ToDouble(item.Movement);
+                }
+                if (item.AttackSpeed != null)
+                {
+                    double atSpeed = Convert.ToDouble(item.AttackSpeed)/100;
+                    AttackSpeed += AttackSpeed * atSpeed;
+                }
+                if (item.Crit != null)
+                {
+                    Crit += Crit * Convert.ToDouble(item.Crit / 100);
+                }
+            }
+            HP += Convert.ToDouble(baseScale.Health + (scale.Health * Model.LevelHero));
+            Mana += Convert.ToDouble(baseScale.Mana + (scale.Mana * Model.LevelHero));
+            Armor += Convert.ToDouble(baseScale.Armor + (scale.Armor * Model.LevelHero));
+            MagicResist += Convert.ToDouble(baseScale.ResistMagic + (scale.ResistMagic * Model.LevelHero));
+            Ad += Convert.ToDouble(baseScale.Ad);
+            Movement += Convert.ToDouble(baseScale.MoveSpeed);
+            Crit = Convert.ToDouble(baseScale.Crit);
+            <div class="col-3">
+            <h5 class="toClose heroStats">Базовые Характеристики</h5>
+            <table class="col toClose">
+                <tr>
+                    <td><span id="healthSpan" class="heroStats col-6 float-start toClose">Здоровье</span></td>
+                    <td><span id="averageHealthSpan" class="heroStats col-6 toClose">@HP</span></td>
+                </tr>
+                <tr>
+                    <td><span id="manaSpan" class="heroStats col-6 float-start toClose">Мана</span></td>
+                    <td><span id="averageManaSpan" class="heroStats col-6 toClose">@Mana</span></td>
+                </tr>
+                <tr>
+                    <td><span id="armorSpan" class="heroStats col-6 float-start toClose">Защита</span></td>
+                    <td><span id="averageArmorSpan" class="heroStats col-6 toClose">@Armor</span></td>
+                </tr>
+                <tr>
+                    <td><span id="magicResistSpan" class="heroStats col-6 float-start d-block toClose">Магическая защита</span></td>
+                    <td><span id="averageMagicResistSpan" class="heroStats col-6 toClose">@MagicResist</span></td>
+                </tr>
+                <tr>
+                    <td><span id="adSpan" class="heroStats col-6 float-start toClose">Урон</span></td>
+                    <td><span id="averageADSpan" class="heroStats col-6 toClose">@Ad</span></td>
+                </tr>
+                <tr>
+                    <td><span id="apSpan" class="heroStats col-6 float-start toClose">Урон</span></td>
+                    <td><span id="averageAPSpan" class="heroStats col-6 toClose">@Ap</span></td>
+                </tr>
+                <tr>
+                    <td><span id="critSpan" class="heroStats col-6 float-start toClose">Крит</span></td>
+                    <td><span id="averageCritSpan" class="heroStats col-6 toClose">@Crit</span></td>
+                </tr>
+                <tr>
+                    <td><span id="movementSpan" class="heroStats col-6 float-start toClose">Передвижение</span></td>
+                    <td><span id="averageMovementSpan" class="heroStats col-6 toClose">@Movement</span></td>
+                </tr>
+                <tr>
+                    <td><span id="attackSpeedSpan" class="heroStats col-6 float-start toClose">Скорость атаки</span></td>
+                    <td><span id="averageAttackSpeedSpan" class="heroStats col-6 toClose">@Math.Round(Convert.ToDecimal(AttackSpeed), 2)</span></td>
+                </tr>
+            </table>
+        </div> 
+        }
     </div>
 
 </div>
