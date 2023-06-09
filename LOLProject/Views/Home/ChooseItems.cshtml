@@ -42,6 +42,7 @@
                             <form method="post" asp-action="ChooseHero">
                                 <input type="hidden" asp-for="ItemName" value="@image.ItemName">
                                 <input type="hidden" asp-for="NameHero" value="@Model.NameHero">
+                                <input type="hidden" asp-for="LevelHero" value="@Model.LevelHero" />
                                 @for(int p =0; p<Model.AddedItems.Count; p++)
                                 {
                                     <input type="hidden" asp-for="AddedItems[p]" value="@Model.AddedItems[p]">

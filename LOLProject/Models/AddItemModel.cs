@@ -1,10 +1,14 @@
-﻿namespace LOLProject.Models
+﻿using System.Drawing;
+
+namespace LOLProject.Models
 {
     public class AddItemModel
     {
         public string ItemName { get; set; } = null!;
 
         public byte[]? ImageItem { get; set; }
+
+        public IFormFile? image { get; set; }
 
         public int? Ad { get; set; }
 
@@ -22,6 +26,10 @@
 
         public string? Modificators { get; set; }
 
-        public int? IdDiff { get; set; }
+        public int IdDiff { get; set; }
+
+        public string? Error { get; set; }
+
+        public int? ErrorCount { get; set; }
     }
 }

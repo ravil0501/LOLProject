@@ -3,6 +3,12 @@ using LOLProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
+using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.WebSockets;
 
 namespace LOLProject.Controllers
 {
@@ -51,37 +57,110 @@ namespace LOLProject.Controllers
         [HttpGet]
         public IActionResult viewItem()
         {
-            return View();
+            var model = new AddItemModel();
+            return View(model);
+        }
+
+        public async Task<byte[]> ConvertIFormFileToByteArrayAsync(IFormFile file)
+        {
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                await file.CopyToAsync(memoryStream);
+                return memoryStream.ToArray();
+            }
+        }
+
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            byte[] fileBytes = await ConvertIFormFileToByteArrayAsync(file);
+
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult viewItem(AddItemModel model)
+        public  IActionResult viewItem(AddItemModel model)
         {
+            model.Error = "";
+            model.ErrorCount = 0;
             var dbContext = new LolprojectContext();
-            dbContext.Add(new Item
+            string extension = Path.GetExtension(model.image.FileName);
+            if(extension != ".png" && extension != ".jpg" && extension != ".jpeg"){
+                model.Error = "Файл не представляет собой изображение";
+                return View(model);
+            }
+
+            using var fileStream = model.image.OpenReadStream();
+            byte[] bytes = new byte[model.image.Length];
+            var p = fileStream.Read(bytes, 0, (int)model.image.Length);
+
+            model.ImageItem = bytes;
+
+            if (string.IsNullOrWhiteSpace(model.ItemName))
             {
-                ItemName = model.ItemName,
-                ImageItem = model.ImageItem,
-                Ad = model.Ad,
-                AttackSpeed = model.AttackSpeed,
-                Ap = model.AttackSpeed,
-                Movement = model.Movement,
-                Armor = model.Armor,
-                Hp = model.Hp,
-                Modificators = model.Modificators
-                
-            });
-            dbContext.SaveChanges();
-            var c = (from a in dbContext.Items
-                     where a.ItemName == model.ItemName
-                     select a).Single();
-            dbContext.Add(new ItemsDifference
+                model.Error = "Пустое имя";
+                return View(model);
+            }
+            if (string.IsNullOrWhiteSpace(Convert.ToString(model.Hp)))
             {
-                IdItem = c.Id,
-                IdDiff = model.IdDiff
-            });
-            dbContext.SaveChanges();
-            return View();
+                model.ErrorCount++;
+            }
+            if (string.IsNullOrWhiteSpace(Convert.ToString(model.Ap)))
+            {
+                model.ErrorCount++;
+            }
+            if (string.IsNullOrWhiteSpace(Convert.ToString(model.Armor)))
+            {
+                model.ErrorCount++;
+            }
+            if (string.IsNullOrWhiteSpace(Convert.ToString(model.IdDiff)))
+            {
+                model.Error = "Пустая категория";
+            }
+            if (string.IsNullOrWhiteSpace(Convert.ToString(model.Ad)))
+            {
+                model.ErrorCount++;
+            }
+            if (string.IsNullOrWhiteSpace(Convert.ToString(model.AttackSpeed)))
+            {
+                model.ErrorCount++;
+            }
+            if (string.IsNullOrWhiteSpace(Convert.ToString(model.Crit)))
+            {
+                model.ErrorCount++;
+            }
+
+            bool nulable = string.IsNullOrWhiteSpace(model.Error);
+            if (nulable && model.ErrorCount<6)
+            {
+                dbContext.Add(new Item
+                {
+                    ItemName = model.ItemName,
+                    ImageItem = model.ImageItem,
+                    Ad = model.Ad,
+                    AttackSpeed = model.AttackSpeed,
+                    Ap = model.AttackSpeed,
+                    Movement = model.Movement,
+                    Armor = model.Armor,
+                    Hp = model.Hp,
+                    Modificators = model.Modificators
+
+                });
+                dbContext.SaveChanges();
+                var c = (from a in dbContext.Items
+                         where a.ItemName == model.ItemName
+                         select a).Single();
+                dbContext.Add(new ItemsDifference
+                {
+                    IdItem = c.Id,
+                    IdDiff = model.IdDiff
+                });
+                dbContext.SaveChanges();
+            }
+            else
+            {
+                model.Error = "Вы не ввели ни одного свойства предмета";
+            }
+            return View(model);
         }
         public int? IdDiff { get; set; }
 

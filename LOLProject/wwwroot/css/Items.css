@@ -192,4 +192,14 @@ body {
     border: none;
 }
 
+.chooseButton {
+    color: white;
+    background-color: #e56161;
+    border: solid;
+    border-color: #a1a0a0
+}
+
+.simulatePar{
+    font-size: 15px;
+}
 
